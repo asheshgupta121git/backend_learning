@@ -28,6 +28,26 @@ app.post("/",(req,res)=>{
     res.send("you send a post request");
 })
 
+//path parameters
+app.get("/:username/:id",(req,res)=>{
+    // console.log(req.params); 
+    let { username, id } = req.params;
+    // res.send("hello im rooot");
+    // res.send(`hello master ${username} welcome!`);
+    //we can also send html request.
+    let code = `<h1>hello master ${username} welcome!</h1>`;
+    res.send(code);
+})
+
+
+//query string
+app.get("/search", (req, res)=>{
+    // console.log(req.query);
+    let { name, color } = req.query;
+    // res.send("no result");
+    res.send(`query result : ${name} fruit and color is ${color} `);
+});
+
 // app.use((req,res)=>{
 //     console.log("request recived");
 //     //sending a string 
